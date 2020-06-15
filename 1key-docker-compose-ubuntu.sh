@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 sudo apt-get remove docker docker-engine docker.io containerd runc
 
@@ -9,7 +9,7 @@ sudo apt-get install \
     ca-certificates \
     curl \
     gnupg-agent \
-    software-properties-common
+    software-properties-common -y
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
@@ -21,6 +21,8 @@ sub   rsa4096 2017-02-22 [S]
 
 sudo apt-key fingerprint 0EBFCD88
 
+read -p 'check the GPG sign, if correct, will add docker repo' a
+
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
@@ -28,9 +30,11 @@ sudo add-apt-repository \
 
 sudo apt-get update
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
 docker -v
+
+read -p 'check docker version, will install docker-compose' a
 
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
@@ -39,3 +43,5 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 docker-compose --version
+
+read -p 'check docker-compose version' a

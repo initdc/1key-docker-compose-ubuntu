@@ -9,7 +9,7 @@ sudo apt-get install \
     ca-certificates \
     curl \
     gnupg-agent \
-    software-properties-common
+    software-properties-common -y
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
@@ -21,6 +21,8 @@ sub   rsa4096 2017-02-22 [S]
 
 sudo apt-key fingerprint 0EBFCD88
 
+read -p 'check the GPG sign, if correct, will add docker repo' a
+
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
@@ -31,3 +33,5 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 docker -v
+
+read -p 'check docker version, will install docker-compose' a
