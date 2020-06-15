@@ -10,10 +10,6 @@ The most simple way to install docker and docker-compose is following the offici
 sh <(curl dc.ubtu.ru)
 ```
 
-```
-sh <(wget dc.ubtu.ru)
-```
-
 That's all of it. enjoy it.
 
 ## Contributing
