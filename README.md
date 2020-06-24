@@ -7,7 +7,7 @@ The most simple way to install docker and docker-compose is following the offici
 ### 1key-docker-compose-ubuntu
 
 ```
-sh <(curl dc.ubtu.ru)
+sh <(curl -L dc.ubtu.ru)
 ```
 
 That's all of it. enjoy it.
